@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.mota.grpc";
+
+message Car {
+  int32 id = 1;
+  string make = 2;
+  string model = 3;
+  int32 year = 4;
+  float price = 5;
+  string color = 6;
+}
+
+message ReserveCarRequest {
+  int32 carId = 1;
+}
+
+message ReserveCarResponse {
+  int64 reservationEndDateUnix = 1;
+}
+
+message GetAvailableCarsResponse {
+  repeated Car car = 1;
+}
+
+message Void {}
+
+message CarFilter {
+  string make = 1;
+  string model = 2;
+  int32 yearMin = 3;
+  int32 yearMax = 4;
+  float priceMin = 5;
+  string priceMax = 6;
+}
+
+service CarClient {
+
+  rpc getListOfAvailableCars(CarFilter) returns (GetAvailableCarsResponse);
+
+  rpc reserveCar(ReserveCarRequest) returns (ReserveCarResponse);
+
+}
+

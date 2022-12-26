@@ -1,0 +1,10 @@
+server:
+  port: 36452
+
+spring:
+  application:
+    name: customer-service
+
+car-selection:
+  host: localhost
+  port: 33644
