@@ -74,6 +74,12 @@
       <artifactId>grpc-stub</artifactId>
       <version>1.49.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
+      <version>3.5.1</version>
+    </dependency>
   </dependencies>
 
   <build>
