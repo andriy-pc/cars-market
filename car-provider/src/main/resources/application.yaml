@@ -1,0 +1,5 @@
+server:
+  port: 33563
+grpc:
+  server:
+    port: 33564

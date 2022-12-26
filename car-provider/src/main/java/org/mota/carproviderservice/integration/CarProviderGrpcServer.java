@@ -1,4 +1,4 @@
-package org.mota.carselectionservice.integration;
+package org.mota.carproviderservice.integration;
 
 import annotation.GrpcServer;
 import io.grpc.Server;
@@ -9,18 +9,17 @@ import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
-@Slf4j
 @GrpcServer
-public class CarSelectionGrpcServer {
+@Slf4j
+public class CarProviderGrpcServer {
 
   @Value("${grpc.server.port}")
   private Integer port;
 
   private final Server server;
 
-  public CarSelectionGrpcServer(ServerBuilder<?> serverBuilder, GrpcCarClient grpcCarClient) {
+  public CarProviderGrpcServer(ServerBuilder<?> serverBuilder) {
     server = serverBuilder
-        .addService(grpcCarClient)
         .build();
   }
 
@@ -32,7 +31,7 @@ public class CarSelectionGrpcServer {
       // Use stderr here since the logger may have been reset by its JVM shutdown hook.
       System.err.println("*** shutting down gRPC server since JVM is shutting down");
       try {
-        CarSelectionGrpcServer.this.stop();
+        CarProviderGrpcServer.this.stop();
       } catch (InterruptedException e) {
         e.printStackTrace(System.err);
       }
@@ -45,5 +44,6 @@ public class CarSelectionGrpcServer {
       server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
     }
   }
+
 
 }
