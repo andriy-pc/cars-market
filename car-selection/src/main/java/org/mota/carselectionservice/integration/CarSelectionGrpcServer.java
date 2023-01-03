@@ -18,9 +18,9 @@ public class CarSelectionGrpcServer {
 
   private final Server server;
 
-  public CarSelectionGrpcServer(ServerBuilder<?> serverBuilder, GrpcCarClient grpcCarClient) {
+  public CarSelectionGrpcServer(ServerBuilder<?> serverBuilder, GrpcCarSelection grpcCarSelection) {
     server = serverBuilder
-        .addService(grpcCarClient)
+        .addService(grpcCarSelection)
         .build();
   }
 

@@ -2,6 +2,7 @@ package org.mota.customerservice.config;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.modelmapper.ModelMapper;
 import org.mota.grpc.CarClientGrpc;
 import org.mota.grpc.CarClientGrpc.CarClientBlockingStub;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,11 @@ public class CommonConfiguration {
   @Bean
   public CarClientBlockingStub carClientBlockingStub(ManagedChannel carSelectionChannel) {
     return CarClientGrpc.newBlockingStub(carSelectionChannel);
+  }
+
+  @Bean
+  public ModelMapper modelMapper() {
+    return new ModelMapper();
   }
 
 }
