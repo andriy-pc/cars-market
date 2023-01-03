@@ -2,7 +2,7 @@
 
 This is a simple application to work with gRPC.
 
-### How it works:
+## How it works:
 
 ![Basic-flow](./basic-flow.png)
 
@@ -31,7 +31,11 @@ In this case `car-provider` returns stream of `Car`s:
  rpc findCarsByFilter(CarFilter) returns (stream Car);
 ```
 
-### How to start the project:
+## How to start the project:
 To start the project you have to 
 * execute `mvn clean install` in the parent directory
 * execute `mvn spring-boot:run` in a folder of each of the services (car-provider, car-selection, customer)
+
+## Additional:
+* a lot of business logic was skipped, because the main idea of this project is to work with gRPC.
+* this project doesn't use `grpc-*spring-boot-starter` to manually try what this starter does. 
