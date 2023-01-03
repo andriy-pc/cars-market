@@ -3,3 +3,7 @@ server:
 grpc:
   server:
     port: 33644
+
+car-provider:
+  host: localhost
+  port: 33564

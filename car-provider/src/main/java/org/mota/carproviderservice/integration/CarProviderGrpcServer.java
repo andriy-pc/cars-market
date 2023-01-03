@@ -18,8 +18,9 @@ public class CarProviderGrpcServer {
 
   private final Server server;
 
-  public CarProviderGrpcServer(ServerBuilder<?> serverBuilder) {
+  public CarProviderGrpcServer(ServerBuilder<?> serverBuilder, GrpcCarProvider grpcCarProvider) {
     server = serverBuilder
+        .addService(grpcCarProvider)
         .build();
   }
 

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class GrpcCarClient extends CarClientImplBase {
+public class GrpcCarSelection extends CarClientImplBase {
 
   private final CarService carService;
 
@@ -20,7 +20,7 @@ public class GrpcCarClient extends CarClientImplBase {
   public void getListOfAvailableCars(CarFilter request,
       StreamObserver<GetAvailableCarsResponse> responseObserver) {
     responseObserver.onNext(GetAvailableCarsResponse.newBuilder()
-        .addAllCar(carService.getAvailableCars(request))
+        .addAllCar(carService.getAvailableCars(request).keySet())
         .build());
     responseObserver.onCompleted();
   }
