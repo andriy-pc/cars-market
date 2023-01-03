@@ -6,6 +6,7 @@ option java_package = "org.mota.grpc";
 import "car_client.proto" ;
 
 service CarProvider {
+
   rpc findCarsByFilter(CarFilter) returns (stream Car);
 
 }
